@@ -85,7 +85,7 @@ def helpmessage():
     helpMessage = """╔═══════════
 ╠♥ ✿✿✿ 虎爺の單體半垢 ✿✿✿ ♥
 ╠═✪〘 owners專用 〙✪═
-╠✪〘 Help 〙✪═════
+╠✪〘 Help 〙✪═════https://github.com/KazumiLine/SelfBot-Ver-1.5.git
 ╠➥ Help 查看指令
 ╠✪〘 Status 〙✪════
 ╠➥ Restart 重新啟動
