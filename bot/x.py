@@ -154,13 +154,13 @@ def helpmessage():
      👉 Fbc: 好友廣播
      👉 Bye 機器退群(Y/N)
 🔹🔹🔹🎄~Admin ~🎄🔹🔹🔹
-     👉 Adminadd @ 新增權限
-     👉 Admindel @ 刪除權限
-     👉 Adminlist 查看權限表
+     👉 addop @ 新增權限
+     👉 delop @ 刪除權限
+     👉 oplist 查看權限表
 🔹🔹🔹🎄~其他 ~🎄🔹🔹🔹🔹
      👉 Say [text times] 重複講話
      👉 Tag @ [times] 重複標人
-     👉 Loli (已關)
+     👉 
 🔹作者：
 🔹https://line.me/ti/p/eiFynbv1Xu """
     return helpMessage
@@ -206,7 +206,7 @@ def helpm():
      👉 Adminlist 查看權限表
      👉 Banlist 查看黑單
      👉 Banmidlist 查看黑單者mid
-     👉 Loli (已關)
+     👉 Loli closed
      作者友資：
      https://line.me/ti/p/eiFynbv1Xu"""
     return helpM
@@ -402,7 +402,7 @@ def lineBot(op):
                         cl.sendMessage(to, str(ret_))
                     except Exception as e:
                         cl.sendMessage(msg.to, str(e))
-                elif text.lower() in ['adminlist','admin']:
+                elif text.lower() in ['adminlist','admin','oplist']:
                     if ban["admin"] == []:
                         cl.sendMessage(to,"無擁有權限者!")
                     else:
@@ -939,14 +939,14 @@ def lineBot(op):
                             cl.sendMessage(to, "邀請保護關閉✖")
                         except:
                             pass
-                elif msg.text.lower().startswith("adminadd ") or msg.text.lower().startswith("add "):
+                elif msg.text.lower().startswith("addop ") or msg.text.lower().startswith("add "):
                     MENTION = eval(msg.contentMetadata['MENTION'])
                     inkey = MENTION['MENTIONEES'][0]['M']
                     if inkey not in ban["admin"] and inkey not in ban["blacklist"] and inkey not in ban["owners"]: 
                         ban["admin"].append(str(inkey))
                         cl.sendMessage(to, "你已成為權限者！")
                         json.dump(ban, codecs.open('bot/ban.json','w','utf-8'), sort_keys=True, indent=4, ensure_ascii=False)
-                elif msg.text.lower().startswith("admindel ") or msg.text.lower().startswith("del "):
+                elif msg.text.lower().startswith("delop ") or msg.text.lower().startswith("del "):
                     MENTION = eval(msg.contentMetadata['MENTION'])
                     inkey = MENTION['MENTIONEES'][0]['M']
                     if inkey in ban["admin"]:
