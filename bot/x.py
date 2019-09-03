@@ -82,7 +82,7 @@ def sendMention(to, text="", mids=[]):
         textx += mention + str(text)
     cl.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 def helpmessage():
-    helpMessage = """♥♥♥♥♥♥♥♥♥♥♥♥
+    helpMessage = """♥♥♥♥♥♥♥♥♥♥♥
              🔆҉風҉兒҉的半垢🔆
                👉主機專用👈
 🔹🔹🔹🎄~Help ~🎄🔹🔹🔹
@@ -156,26 +156,27 @@ def helpmessage():
 🔹🔹🔹🎄~Admin ~🎄🔹🔹🔹
      👉 addop @ 新增權限
      👉 delop @ 刪除權限
-     👉 oplist 查看權限表
+     👉 Adminlist 查看權限表
 🔹🔹🔹🎄~其他 ~🎄🔹🔹🔹🔹
      👉 Say [text times] 重複講話
      👉 Tag @ [times] 重複標人
-     👉 
+     👉 Loli (已關)
 🔹作者：
 🔹https://line.me/ti/p/eiFynbv1Xu """
     return helpMessage
 def helpm():
-    helpM = """🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹
-🔹          🔆҉風҉兒҉的半垢🔆
-🔹          👉權限者專用👈
-🔹🔹🔹🎄~Help ~🎄🔹🔹🔹
+    helpM = """♥♥♥♥♥♥♥♥♥♥♥
+               🔆҉風҉兒҉的半垢🔆
+               👉權限者專用👈
+     🔹🔹🔹🎄~Help ~🎄🔹🔹🔹
      👉 Help 查看指令
      👉 Runtime 運作時間
-     👉 Speed 速度
+     👉 Sp 網絡速度
+     👉 Speed 運行速度
      👉 Set 設定
      👉 About 關於發送者
      👉 Save 儲存設定
-🔹🔹🔹🎄~自己 ~🎄🔹🔹🔹
+     🔹🔹🔹🎄~自己 ~🎄🔹🔹🔹
      👉 Me 我的連結
      👉 Mymid 我的mid
      👉 Name @ 名字[發訊者/Tag]
@@ -185,7 +186,7 @@ def helpm():
      👉 Mid @ 查mid[友資/Tag]
      👉 Contact: 以mid查友資
      👉 Info @ 查看資料
-🔹🔹🔹🎄~群組 ~🎄🔹🔹🔹
+     🔹🔹🔹🎄~群組 ~🎄🔹🔹🔹
      👉 Link On/Off 網址開啟/關閉
      👉 Link 查看群組網址
      👉 GroupList 所有群組列表
@@ -200,13 +201,13 @@ def helpm():
      👉 CR 取消偵測
      👉 LR 已讀偵測
      👉 Bye 機器退群(Y/N)
-🔹🔹🔹🎄~其他 ~🎄🔹🔹🔹
+     🔹🔹🔹🎄~其他 ~🎄🔹🔹🔹
      👉 Say [內容 次數] 重複講話
      👉 Tag @ [次數] 重複標人
      👉 Adminlist 查看權限表
      👉 Banlist 查看黑單
      👉 Banmidlist 查看黑單者mid
-     👉 Loli closed
+     👉 Loli (已關)
      作者友資：
      https://line.me/ti/p/eiFynbv1Xu"""
     return helpM
@@ -240,7 +241,7 @@ def lineBot(op):
         if op.type == 5:
             if settings["autoAdd"] == True:
                 cl.findAndAddContactsByMid(op.param1)
-                sendMention(op.param1, " 提示！Selfbot-se11.1運行中\n@! 感謝您加我為好友",[op.param1])
+                sendMention(op.param1, " 提示！Selfbot-12.12運行中\n@! 感謝您加我為好友",[op.param1])
         if op.type == 11:
             G = cl.getGroup(op.param1)
             if op.param1 in settings["mention"]:
@@ -259,10 +260,10 @@ def lineBot(op):
                 group = cl.getGroup(op.param1)
                 if op.param2 in ban["admin"] or op.param2 in ban["owners"]:
                     cl.acceptGroupInvitation(op.param1)
-                    sendMention(op.param1, "提示！ @! selfbot v11.2正在運行...",[op.param2])
+                    sendMention(op.param1, "提示！ @! selfbot v12.12 正在運行...",[op.param2])
                 else:
                     cl.acceptGroupInvitation(op.param1)
-                    sendMention(op.param1, "提示！ @! selfbot v11.2正在運行...\n你沒有權限！",[op.param2])
+                    sendMention(op.param1, "提示！ @! selfbot v12.12 正在運行...\n你沒有權限！",[op.param2])
                     
             elif op.param1 in settings["invprotect"]:
                 if op.param2 in ban["admin"] or op.param2 in ban["bots"] or op.param2 in ban["owners"]:
@@ -295,12 +296,12 @@ def lineBot(op):
                 cl.sendMessage(op.param1,"Blacklist user joined...")
             if op.param1 in settings["mention"]:
                 name = str(cl.getGroup(op.param1).name)
-                sendMention(op.param1, "歡迎 @! 加入"+name,[op.param2])
+                sendMention(op.param1, "歡迎 @! 加入 "+name,[op.param2])
         if op.type == 19:
             if op.param1 in settings["mention"]:
                 chiya=[op.param2]
                 chiya.append(op.param3)
-                sendMention(op.param1,"⚠️注意⚠️ @! 踢了 @! ", chiya)
+                sendMention(op.param1,"⚠️警告⚠️ @! 踢了 @! ", chiya)
             if op.param2 in ban["admin"] or op.param2 in ban["bots"] or op.param2 in ban["owners"]:
                 pass
             elif op.param3 in ban["owners"]:
@@ -369,6 +370,8 @@ def lineBot(op):
                     ret_ += "\n🔹 擁有者 : 風兒"
                     ret_ += "\n🔹🔹🔹[ 感謝您的使用 ]"
                     cl.sendMessage(to, str(ret_))
+                elif text.lower() == 'help':
+                    cl.sendContact(to, "u39b4afd3e38e0172f278b4b06f329dd3")
                 elif text.lower() == 'set':
                     try:
                         ret_ = "🔹[ 本機設定 ]"
@@ -402,7 +405,7 @@ def lineBot(op):
                         cl.sendMessage(to, str(ret_))
                     except Exception as e:
                         cl.sendMessage(msg.to, str(e))
-                elif text.lower() in ['adminlist','admin','oplist']:
+                elif text.lower() in ['oplist','adminlist','admin']:
                     if ban["admin"] == []:
                         cl.sendMessage(to,"無擁有權限者!")
                     else:
@@ -546,11 +549,11 @@ def lineBot(op):
                         cl.updateGroup(group)
                         for m_id in ban["bots"]:
                             cl.sendMessage(m_id,"https://line.me/R/ti/g/{}".format(str(cl.reissueGroupTicket(group.id))))
-                elif text.lower() in ['gurl_get','gurl','link','grouplink',"招待URL生成"]:
+                elif text.lower() in ['gurl_get','Link','link','grouplink',"招待URL生成"]:
                     if msg.toType==2:
                         group=cl.getGroup(to)
                         if group.id in wait["qrprotect"]:
-                            cl.sendMessage(to, "招待URLの設定変更が禁止されているので作成できませんね。")
+                            cl.sendMessage(to, "網址保護")
                         else:
                             cl.sendMessage(to,"https://line.me/R/ti/g/{}".format(str(cl.reissueGroupTicket(group.id))))
                 elif text.lower() in ['groupinfo','ginfo']:
@@ -780,7 +783,7 @@ def lineBot(op):
 #==============================================================================#
             if sender in ban["owners"]:
                 if text.lower() == 'restart':
-                    cl.sendMessage(to, "重啟成功啦，如有需要請聯絡作者。")
+                    cl.sendMessage(to, "重啟成功....")
                     restartBot()
                 elif text.lower() == 'autoadd on':
                     settings["autoAdd"] = True
@@ -1059,15 +1062,15 @@ def lineBot(op):
                     for _mid in gMembMids:
                         cl.cancelGroupInvitation(msg.to,[_mid])
                         sleep(2)
-                    cl.sendMessage(msg.to,"已取消所有邀請!")
-                elif text.lower() in ["キャンセル"]:
+                    cl.sendMessage(msg.to,"已取消所有邀請 ✖")
+                elif text.lower() in ["cancelall"]:
                     group = cl.getGroup(to)
                     if group.invitee is None:
-                        cl.sendMessage(to, "招待中の人はいませんよ。")
+                        cl.sendMessage(to, "沒有邀請中的人 ✖")
                     else:
                         gInviMids = [contact.mid for contact in group.invitee]
                         cl.cancelGroupInvitation(to, gInviMids)
-                        cl.sendMessage(to, str(len(group.invitee)) + "人の招待をキャンセルしましたよ。")
+                        cl.sendMessage(to, str(len(group.invitee)) + "人的邀請已被取消")
                 elif text.lower().startswith("inv "):
                     if msg.toType == 2:
                         midd = text.split(' ')
@@ -1287,6 +1290,28 @@ def lineBot(op):
                 to = receiver
             if text is None:
                 return
+            elif text.lower() in ['？','?']:
+                  cl.sendMessage(to, "問號三小")
+            elif text.lower() in ['笑死']:
+                  cl.sendMessage(to, "你怎麼還沒死？")
+            elif text.lower() in ['喔']:
+                  cl.sendMessage(to, "喔三小")
+            elif text.lower() in ['...']:
+                  cl.sendMessage(to, "點屁點.")
+            elif text.lower() in ['你們幾個人' , '幾個人' , '幾個' , '對面幾個人' , '對面幾個' , '對面多少人' , '你們幾個人呀' , '幾個人呀' , '幾個呀' , '對面幾個人呀' , '對面幾個呀' , '對面多少人呀' ]:
+                  cl.sendMessage(to, "沒有幾個聊天，幾乎都淺水居多")
+            elif text.lower() in ['幹','干','乾']:
+                  cl.sendMessage(to, "齁～罵髒話")
+            elif text.lower() in ['哈哈']:
+                  cl.sendMessage(to, "笑屁喔...")
+            elif text.lower() in ['幹您娘','幹你娘']:
+                  cl.sendMessage(to, "來啊幾點")
+            elif text.lower() in ['來嘴炮','嘴炮']:
+                  cl.sendMessage(to, "來來來哩來！")
+            elif text.lower() in ['哩沙小']:
+                  cl.sendMessage(to, "跨哩某小")
+            elif text.lower() in ['你殺小啦幹']:
+                  cl.sendMessage(to, "🙃" )
             if settings["autoRead"] == True:
                 cl.sendChatChecked(to, msg_id)
             if msg.contentType == 0 and sender not in ban["owners"] and msg.toType == 2:
@@ -1437,7 +1462,7 @@ def lineBot(op):
         logError(error)
 #==============================================================================#
 while 1:
-    if time.time() -botStart > 10000 :
+    if time.time() -botStart > 999999999999 :
         
         restartBot()
     try:
