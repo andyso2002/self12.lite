@@ -1290,28 +1290,6 @@ def lineBot(op):
                 to = receiver
             if text is None:
                 return
-            elif text.lower() in ['？','?']:
-                  cl.sendMessage(to, "問號三小")
-            elif text.lower() in ['笑死']:
-                  cl.sendMessage(to, "你怎麼還沒死？")
-            elif text.lower() in ['喔']:
-                  cl.sendMessage(to, "喔三小")
-            elif text.lower() in ['...']:
-                  cl.sendMessage(to, "點屁點.")
-            elif text.lower() in ['你們幾個人' , '幾個人' , '幾個' , '對面幾個人' , '對面幾個' , '對面多少人' , '你們幾個人呀' , '幾個人呀' , '幾個呀' , '對面幾個人呀' , '對面幾個呀' , '對面多少人呀' ]:
-                  cl.sendMessage(to, "沒有幾個聊天，幾乎都淺水居多")
-            elif text.lower() in ['幹','干','乾']:
-                  cl.sendMessage(to, "齁～罵髒話")
-            elif text.lower() in ['哈哈']:
-                  cl.sendMessage(to, "笑屁喔...")
-            elif text.lower() in ['幹您娘','幹你娘']:
-                  cl.sendMessage(to, "來啊幾點")
-            elif text.lower() in ['來嘴炮','嘴炮']:
-                  cl.sendMessage(to, "來來來哩來！")
-            elif text.lower() in ['哩沙小']:
-                  cl.sendMessage(to, "跨哩某小")
-            elif text.lower() in ['你殺小啦幹']:
-                  cl.sendMessage(to, "🙃" )
             if settings["autoRead"] == True:
                 cl.sendChatChecked(to, msg_id)
             if msg.contentType == 0 and sender not in ban["owners"] and msg.toType == 2:
